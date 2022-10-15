@@ -8,7 +8,6 @@ Route::middleware([
   // 'auth',
   // \App\Http\Middleware\RedirectIfAuthenticated::class,
 ])
-  ->prefix('heyaa')
   ->name('users.')
   ->group(function(){
     Route::get('/users', [\App\Http\Controllers\UserController::class, 'index'])
