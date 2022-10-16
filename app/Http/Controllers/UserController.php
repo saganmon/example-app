@@ -14,9 +14,10 @@ class UserController extends Controller
      *
      * @return UserResource
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::query()->get();
+        $pageSize = $request->page_size ?? 20;
+        $users = User::query()->paginate($pageSize);
 
         return UserResource::collection($users);
     }
