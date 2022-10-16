@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\GeneralJsonException;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
 use App\Repositories\PostRepository;
@@ -18,6 +19,8 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
+        // report(GeneralJsonException::class);
+        // abort(404);
         $pageSize = $request->page_size ?? 20;
         $posts = Post::query()->paginate($pageSize);
 
