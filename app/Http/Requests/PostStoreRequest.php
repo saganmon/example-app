@@ -31,13 +31,6 @@ class PostStoreRequest extends FormRequest
                 'array',
                 'required',
                 new IntegerArray(),
-                // function($attribute, $value, $fail){
-                //     $integerOnly = collect($value)->every(fn ($element) => is_int($element));
-                    
-                //     if (!$integerOnly){
-                //         $fail($attribute . ' can only be integers.');
-                //     }
-                // }
             ],
         ];
     }
