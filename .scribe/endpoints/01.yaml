@@ -1,0 +1,270 @@
+name: 'User Mnagement'
+description: |-
+
+  APIs to manage the user resource.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/users
+    metadata:
+      groupName: 'User Mnagement'
+      groupDescription: |-
+
+        APIs to manage the user resource.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a listing of users.'
+      description: 'Gets a list of users.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      page_size:
+        name: page_size
+        description: 'Size per page. Defaults to 20.'
+        required: false
+        example: 20
+        type: integer
+        custom: []
+      page:
+        name: page
+        description: 'Page to view.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+    cleanQueryParameters:
+      page_size: 20
+      page: 1
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":12,"name":"Raven Schultz","email":"dnicolas@example.com","email_verified_at":"2022-10-16T12:02:53.000000Z","password":"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC\/.og\/at2.uheWG\/igi","remember_token":"Ll4HzPo3x7","created_at":"2022-10-16T12:02:53.000000Z","updated_at":"2022-10-16T12:02:53.000000Z"},{"id":13,"name":"Berry Beahan","email":"erich.raynor@example.net","email_verified_at":"2022-10-16T12:02:53.000000Z","password":"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC\/.og\/at2.uheWG\/igi","remember_token":"jt14xoo8Px","created_at":"2022-10-16T12:02:53.000000Z","updated_at":"2022-10-16T12:02:53.000000Z"}]}'
+        headers: []
+        description: '0'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: 'User Mnagement'
+      groupDescription: |-
+
+        APIs to manage the user resource.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display the specified resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'User ID'
+        required: true
+        example: 15
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":14,"name":"Mr. Dawson Raynor Sr.","email":"xconn@example.net","email_verified_at":"2022-10-16T12:02:53.000000Z","password":"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC\/.og\/at2.uheWG\/igi","remember_token":"HYT7rPpXFa","created_at":"2022-10-16T12:02:53.000000Z","updated_at":"2022-10-16T12:02:53.000000Z"}}'
+        headers: []
+        description: '0'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/users
+    metadata:
+      groupName: 'User Mnagement'
+      groupDescription: |-
+
+        APIs to manage the user resource.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a newly created resource in storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Name of the user.'
+        required: true
+        example: 'John Doe'
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Email of the user.'
+        required: true
+        example: doe@doe.com
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: 'John Doe'
+      email: doe@doe.com
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":15,"name":"Bridie Beer","email":"mheathcote@example.net","email_verified_at":"2022-10-16T12:02:53.000000Z","password":"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC\/.og\/at2.uheWG\/igi","remember_token":"opKHDQVxb3","created_at":"2022-10-16T12:02:53.000000Z","updated_at":"2022-10-16T12:02:53.000000Z"}}'
+        headers: []
+        description: '0'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: 'User Mnagement'
+      groupDescription: |-
+
+        APIs to manage the user resource.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified resource in storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 16
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Name of the user.'
+        required: true
+        example: 'John Doe'
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Email of the user.'
+        required: true
+        example: doe@doe.com
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: 'John Doe'
+      email: doe@doe.com
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":16,"name":"Mrs. Else Morissette PhD","email":"ischoen@example.com","email_verified_at":"2022-10-16T12:02:53.000000Z","password":"$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC\/.og\/at2.uheWG\/igi","remember_token":"JXLTSTM7CN","created_at":"2022-10-16T12:02:53.000000Z","updated_at":"2022-10-16T12:02:53.000000Z"}}'
+        headers: []
+        description: '0'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: 'User Mnagement'
+      groupDescription: |-
+
+        APIs to manage the user resource.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove the specified resource from storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 9
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 9
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": "success"
+          }
+        headers: []
+        description: '200'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
