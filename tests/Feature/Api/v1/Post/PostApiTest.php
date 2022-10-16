@@ -3,6 +3,7 @@
 namespace Tests\Feature\Api\v1\Post;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -13,6 +14,15 @@ class PostApiTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected $uri = '/api/vi/posts';
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $user = User::factory()->make();
+        $this->actingAs($user);
+    }
+
     public function test_index()
     {
         // load data in db
@@ -20,7 +30,7 @@ class PostApiTest extends TestCase
         $postIds = $posts->map(fn ($post) => $post->id);
 
         // call index endpoint
-        $response = $this->json('get', '/api/v1/posts');
+        $response = $this->json('get', $this->uri);
 
         // assert status
         $response->assertStatus(200);
@@ -45,7 +55,9 @@ class PostApiTest extends TestCase
         Event::fake();
         $dummy = Post::factory()->make();
 
-        $response = $this->json('post', '/api/v1/posts', $dummy->toArray());
+        $dummyUser = User::factory()->create();
+
+        $response = $this->json('post', $this->uri, array_merge($dummy->toArray(), ['user_ids' => [$dummyUser->id]]));
 
         $result = $response->assertStatus(201)->json('data');
         Event::assertDispatched(PostCreated::class);
@@ -79,7 +91,7 @@ class PostApiTest extends TestCase
         Event::fake();
         $dummy = Post::factory()->create();
 
-        $response = $this->json('delete', '/api/v1/posts', $dummy->id);
+        $response = $this->json('delete', $this->uri, $dummy->id);
 
         $result = $response->assertStatus(200);
         Event::assertDispatched(PostDeleted::class);

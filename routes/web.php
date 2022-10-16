@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/reset-password/{token}', function($token){
+    return $token;
+})->middleware(['guest:'.config('fortify.guard')])
+  ->name('password.reset');
+
 if (\Illuminate\Support\Facades\App::environment('local')){
     Route::get('/playground',function () {
         $user = \App\Models\User::factory()->make();
